@@ -1,8 +1,12 @@
+// import { createStyles } from '@mantine/core';
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from './header';
+import { connect } from "react-redux";
+import { addToCart } from '../../Redux/Shopping/shopping-actions';
 
-const Header = ({ productData }) => {
+
+const Header = ({ productData, addToCart }) => {
 
   return (
     <div>
@@ -30,11 +34,11 @@ const Header = ({ productData }) => {
         <div>
           <Link to={`/product/someID`}>
             <button>
-              View Item
+              VIEW DETAILS
             </button>
           </Link>
-          <button>
-            Add To Cart
+          <button onClick={() => addToCart(productData.id)}>
+            ADD TO CART
           </button>
         </div>
       </div>
@@ -49,5 +53,11 @@ const Header = ({ productData }) => {
   );
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+    // loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
+  };
+};
 
-export default Header;
+export default connect(null, mapDispatchToProps)(Header);
