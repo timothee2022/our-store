@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import Header from './components/Header/header';
 import Footer from './components/Footer/footer';
 // import Categories from './components/Categories/categories';
-import Products from './components/Products/products';
+import Products from './components/Products/Product/Product';
 import './App.css';
 
 function App({ current }) {

@@ -1,5 +1,15 @@
 import * as actionTypes from "./shopping-types";
 
+export const selectCategory = (category) => {
+  return {
+    type: actionTypes.SELECT_CATEGORY,
+    payload: {
+      id: category,
+    },
+  };
+};
+
+
 export const addToCart = (itemID) => {
   return {
     type: actionTypes.ADD_TO_CART,
